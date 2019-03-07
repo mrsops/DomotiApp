@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#167ca7</color>
+    <color name="colorPrimaryDark">#031512</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorTextLogin">#cfdbe7</color>
+    <color name="colorBackground">#3191ea</color>
+    <color name="background_select_temperatures">#bebebe</color>
+    <color name="background_view_temperatures">#d7d0d0</color>
+    <color name="background_welcome">#afafaf</color>
+</resources>
