@@ -24,14 +24,24 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 
-public class FragmentWindows extends Fragment {
+public class FragmentWindows extends Fragment{
     TextView verTemperaturas;
+    private View.OnClickListener onClickListener;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_fragment_windows, container, false);
     }
+    
+    public void openWindows(){
+        Toast.makeText(this.getContext(), "Pulsado el boton de abrir", Toast.LENGTH_SHORT).show();
+    }
+    
+    public void closeWindows(){
+        Toast.makeText(this.getContext(), "Pulsado el boton de cerrar", Toast.LENGTH_SHORT).show();
+    }
+
 
 
 }

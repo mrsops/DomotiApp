@@ -8,6 +8,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -18,6 +19,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -26,6 +28,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.simarro.practicas.domotiapp.R;
+import com.simarro.practicas.domotiapp.fragments.FragmentAlarm;
 import com.simarro.practicas.domotiapp.fragments.FragmentLights;
 import com.simarro.practicas.domotiapp.fragments.FragmentPower;
 import com.simarro.practicas.domotiapp.fragments.FragmentSetup;
@@ -42,10 +45,16 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 
-public class MainMenu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class MainMenu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
     private static Configuration config;
     private static Locale locale;
     private SearchDatabase searchDatabase;
+    private FragmentWindows windowsFrag;
+    private FragmentAlarm alarmFrag;
+    private FragmentPower powerFrag;
+    private FragmentLights lightsFrag;
+
+
     SharedPreferences.OnSharedPreferenceChangeListener listener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,8 +140,8 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         } else if (id == R.id.nav_power) {
             fragmentManager.beginTransaction().replace(R.id.container, new FragmentPower()).commit();
         } else if (id == R.id.nav_windows) {
-
-            fragmentManager.beginTransaction().replace(R.id.container, new FragmentWindows()).commit();
+            windowsFrag = new FragmentWindows();
+            fragmentManager.beginTransaction().replace(R.id.container, windowsFrag).commit();
         } else if (id == R.id.nav_alarm) {
             searchDatabase = new SearchDatabase();
             searchDatabase.execute((Void) null);
@@ -215,5 +224,23 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         protected void onPostExecute(Boolean aBoolean) {
             super.onPostExecute(aBoolean);
         }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.windows_close_button:
+                this.windowsFrag.closeWindows();
+                break;
+            case R.id.windows_open_button:
+                this.windowsFrag.openWindows();
+                break;
+
+            default:
+                Toast.makeText(this, "No se", Toast.LENGTH_SHORT).show();
+                break;
+
+        }
+
     }
 }

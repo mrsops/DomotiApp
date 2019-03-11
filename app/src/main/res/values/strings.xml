@@ -39,6 +39,9 @@
     <string name="apply">Apply</string>
     <string name="change_language">Change Language</string>
     <string name="login">Login</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="windows_home">Windows home</string>
 
     <string-array name="languages">
         <item>Spanish</item>

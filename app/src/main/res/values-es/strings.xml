@@ -40,6 +40,9 @@
     <string name="apply">Aplicar</string>
     <string name="change_language">Cambiar Idioma</string>
     <string name="login">Iniciar Sesion</string>
+    <string name="open">Abrir</string>
+    <string name="close">Cerrar</string>
+    <string name="windows_home">Ventanas del hogar</string>
 
     <string-array name="languages">
         <item>Español</item>

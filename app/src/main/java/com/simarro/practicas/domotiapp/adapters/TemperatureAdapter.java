@@ -14,7 +14,7 @@ public class TemperatureAdapter extends ArrayAdapter<Temperature> {
     Activity context;
 
     public TemperatureAdapter(Fragment context, ArrayList<Temperature> temperatures) {
-        super(context.getActivity(), R.layout.ver_cuentas_activity, temperatures);
+        super(context.getActivity(), R.layout.fragment_fragment_temperature, temperatures);
         this.temperatures = temperatures;
         this.context = context.getActivity();
     }
